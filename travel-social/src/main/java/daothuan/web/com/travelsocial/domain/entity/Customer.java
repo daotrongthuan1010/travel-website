@@ -20,6 +20,8 @@ import lombok.Setter;
  */
 @Entity
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Customer extends AuditLog{
 

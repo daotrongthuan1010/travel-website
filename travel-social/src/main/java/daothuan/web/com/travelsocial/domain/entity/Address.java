@@ -1,13 +1,16 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-
 /**
  * Address class to store address for system.
  *
@@ -25,22 +28,22 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="street")
+    @Column(name = "street")
     private String street;
 
-    @Column(name ="ward")
+    @Column(name = "ward")
     private String ward;
 
-    @Column(name="district")
+    @Column(name = "district")
     private String district;
 
-    @Column(name="city")
+    @Column(name = "city")
     private String city;
 
-    @Column(name="country")
+    @Column(name = "country")
     private String country;
 
-    @Column(name ="zip_code")
+    @Column(name = "zip_code")
     private String zipCode;
 
 }
