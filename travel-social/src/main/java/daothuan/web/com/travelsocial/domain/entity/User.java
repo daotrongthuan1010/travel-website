@@ -28,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class User extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,8 +64,7 @@ public class User {
     @Column(name = "refresh_token")
     private String refreshToken;
 
-    @ManyToMany(mappedBy = "role")
-    private Set<User_Role> userRoles;
+
 
 
 

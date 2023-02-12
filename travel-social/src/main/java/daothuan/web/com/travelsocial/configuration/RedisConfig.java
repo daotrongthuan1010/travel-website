@@ -3,6 +3,6 @@
  */
 package daothuan.web.com.travelsocial.configuration;
 
-public class OfficeConfig {
+public class RedisConfig {
 
 }

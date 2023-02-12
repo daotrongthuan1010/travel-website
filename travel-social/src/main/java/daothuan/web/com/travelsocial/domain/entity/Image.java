@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Builder
-public class Image extends AuditLog {
+public class Image extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

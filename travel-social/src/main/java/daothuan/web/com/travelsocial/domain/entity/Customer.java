@@ -19,12 +19,9 @@ import lombok.Setter;
  * @version 1.0
  */
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Setter
 @Builder
-public class Customer extends AuditLog {
+public class Customer extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

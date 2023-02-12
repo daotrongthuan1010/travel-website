@@ -19,9 +19,9 @@ import lombok.Setter;
  * @version 1.0
  */
 @Entity
+@NoArgsConstructor
 @Getter
-@Builder
-public class Price extends AuditLog  {
+public class Price  extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,5 @@ public class Price extends AuditLog  {
     @Column(name = "updateAt")
     private LocalDateTime updatedAt;
 
-    public Price() {
 
-    }
 }

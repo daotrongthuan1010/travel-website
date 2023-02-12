@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Builder
 @Getter
 @Setter
-public class Destination extends AuditLog {
+public class Destination extends AuditLog  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

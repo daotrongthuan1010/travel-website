@@ -23,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Post extends AuditLog  {
+public class Post extends AuditLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
