@@ -8,11 +8,17 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * Address class to store address for system.
+ *
+ * @author ThuanDao1010
+ * @version 1.0
+ */
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Builder
 public class Address implements Serializable {
 
     @Id

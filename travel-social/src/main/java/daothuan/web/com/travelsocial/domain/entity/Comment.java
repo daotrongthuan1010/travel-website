@@ -1,20 +1,27 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
+/**
+ * Comment class to store comment review of use.
+ *
+ * @author thuandao
+ * @version 1.0
+ */
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Comment extends AuditLog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

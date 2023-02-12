@@ -5,6 +5,12 @@ import lombok.*;
 
 import java.io.Serializable;
 
+/**
+ * Destination class marks a destination for the user
+ *
+ * @author thuandao
+ * @version 1.0
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

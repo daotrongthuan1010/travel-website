@@ -1,25 +1,34 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+/**
+ * User class to store user information.
+ *
+ * @author ThuanDao1010
+ * @version 1.0
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User extends AuditLog  {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,28 +40,36 @@ public class User extends AuditLog  {
     @Column(name = "password")
     private String password;
 
-    @Column(name="last_name")
-    private String lastName;
+    @Column(name= "full_name")
+    private String fullName;
 
-    @Column(name="frist_name")
-    private String fristName;
-
-    @Column(name ="number_phone")
+    @Column(name = "number_phone")
     private String numberPhone;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name= "date_of_brith")
-    private LocalDateTime dateOfBrith;
+    @Column(name = "oauth_provider")
+    private String oauth2Provider;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
+    @Column(name = "oauth_provider_id")
+    private String oauth2ProviderId;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<User_Role> userRoles = new HashSet<>();
+    @Column(name = "access_token")
+    private String accessToken;
+
+    @Column(name = "expires_at")
+    private LocalDateTime expiresAt;
+
+    @Column(name = "refresh_token")
+    private String refreshToken;
+
+    @ManyToMany(mappedBy = "role")
+    private Set<User_Role> userRoles;
+
+
+
+
 
 
 

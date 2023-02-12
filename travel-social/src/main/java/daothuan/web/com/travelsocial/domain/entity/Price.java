@@ -1,16 +1,25 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.io.Serializable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+/**
+ * Price class marks price change
+ *
+ * @author thuandao
+ * @version 1.0
+ */
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
-@Setter
 @Builder
 public class Price extends AuditLog  {
 
@@ -24,5 +33,7 @@ public class Price extends AuditLog  {
     @Column(name = "updateAt")
     private LocalDateTime updatedAt;
 
+    public Price() {
 
+    }
 }

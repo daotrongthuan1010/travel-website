@@ -1,6 +1,12 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,15 +16,18 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
+/**
+ * AuditLog class to change in system.
+ *
+ * @author ThuanDao1010
+ * @version 1.0
+ */
 @Entity
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuditLog implements Serializable {
+public class AuditLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,5 +47,7 @@ public class AuditLog implements Serializable {
     @LastModifiedDate
     @Column(name = "last_update_date")
     private LocalDateTime updateDateTime;
+
+
 
 }

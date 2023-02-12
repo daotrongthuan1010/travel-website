@@ -6,6 +6,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 
+/**
+ * Image class stores images for the system
+ *
+ * @author thuandao
+ * @version 1.0
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
