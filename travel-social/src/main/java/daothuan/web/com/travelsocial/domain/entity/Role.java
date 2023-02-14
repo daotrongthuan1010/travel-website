@@ -1,13 +1,6 @@
 package daothuan.web.com.travelsocial.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * Customer class marks a user as a guest
@@ -15,19 +8,13 @@ import lombok.NoArgsConstructor;
  * @author thuandao
  * @version 1.0
  */
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 
-public class Role extends AuditLog {
+public enum Role implements GrantedAuthority {
+    ROLE_ADMIN, ROLE_CLIENT;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name="name_role")
-    private String nameRole;
+    public String getAuthority() {
+        return name();
+    }
 
 
 

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@Profile("dev")
+@Profile("prod")
 @PropertySource("classpath:application-prod.yaml")
 public class ApplicationProdConfig {
 

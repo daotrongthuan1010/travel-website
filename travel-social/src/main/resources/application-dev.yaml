@@ -1,22 +1,18 @@
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test1?useSSL=false
+    url: jdbc:mysql://localhost:3306/app?useSSL=false
     username: root
     password: mk123654
   jpa:
-    open-in-view: false
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
+      open-in-view: false
+      show-sql: true
       hibernate:
-        validator:
-          apply_to_ddl: false
-        dialect: org.hibernate.dialect.MySQL5Dialect
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+        ddl-auto: update
+      properties:
+        hibernate:
+          validator:
+            apply_to_ddl: false
+          dialect: org.hibernate.dialect.MySQL5Dialect
 server:
   port: 8080
 

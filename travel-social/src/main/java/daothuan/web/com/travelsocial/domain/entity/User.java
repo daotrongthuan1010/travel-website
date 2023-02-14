@@ -2,12 +2,15 @@ package daothuan.web.com.travelsocial.domain.entity;
 
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,8 +30,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class User extends AuditLog{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,6 +65,9 @@ public class User extends AuditLog{
 
     @Column(name = "refresh_token")
     private String refreshToken;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<Role> roles;
 
 
 
