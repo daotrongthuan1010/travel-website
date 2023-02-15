@@ -10,6 +10,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -41,6 +42,28 @@ public class DestinationRepositoryIpm implements DestinationRepository {
     entityManager.clear();
     return resultList;
   }
+
+  @Override
+  @Transactional
+  public void saveOrUpdate(Destination destination) {
+    Optional<Destination> optional = Optional.ofNullable(destination.getId())
+        .flatMap(id -> Optional.ofNullable(entityManager.find(Destination.class, id)));
+
+    if (optional.isPresent()) {
+      Destination existingDestination = optional.get();
+      existingDestination = Destination.builder()
+          .id(destination.getId())
+          .name(destination.getName())
+          .description(destination.getDescription())
+          .location(destination.getLocation())
+          .build();
+      entityManager.merge(existingDestination);
+    } else {
+      entityManager.persist(destination);
+    }
+    entityManager.flush();
+  }
+
 
 
 

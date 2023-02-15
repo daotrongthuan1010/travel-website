@@ -12,27 +12,22 @@ import java.io.Serializable;
  * @version 1.0
  */
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Getter
-@Setter
+@Builder
 public class Destination extends AuditLog  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private final Long id;
 
     @Column(name = "name")
-    private String name;
+    private final String name;
 
     @Column(name = "description")
-    private String description;
+    private final String description;
 
     @Column(name = "location")
-    private String location;
-
-
+    private final String location;
 
 
 }

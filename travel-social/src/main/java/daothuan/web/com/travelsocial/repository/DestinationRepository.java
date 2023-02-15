@@ -12,6 +12,8 @@ public interface DestinationRepository  {
 
   List<Destination> findListDestination(String nameDestination);
 
+  void saveOrUpdate(Destination destination);
+
 
 
 
