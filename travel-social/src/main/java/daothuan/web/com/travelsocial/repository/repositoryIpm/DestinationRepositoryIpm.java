@@ -1,10 +1,9 @@
 /**
  * @author ThuanDao
  */
-package daothuan.web.com.travelsocial.repositoryIpm;
+package daothuan.web.com.travelsocial.repository.repositoryIpm;
 
 import daothuan.web.com.travelsocial.domain.entity.Destination;
-import daothuan.web.com.travelsocial.repository.DestinationRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -21,7 +20,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Transactional
-public class DestinationRepositoryIpm implements DestinationRepository {
+public class DestinationRepositoryIpm {
 
 
   @PersistenceContext
@@ -34,7 +33,7 @@ public class DestinationRepositoryIpm implements DestinationRepository {
    * @return a list of destinations with the given name
    * @author thuandao
    */
-  @Override
+
   public List<Destination> findListDestination(String nameDestination) {
     TypedQuery<Destination> query = entityManager.createQuery("SELECT u FROM Destination u WHERE u.name = :nameDestination", Destination.class);
     query.setParameter("nameDestination", nameDestination);
@@ -43,7 +42,7 @@ public class DestinationRepositoryIpm implements DestinationRepository {
     return resultList;
   }
 
-  @Override
+
   @Transactional
   public void saveOrUpdate(Destination destination) {
     Optional<Destination> optional = Optional.ofNullable(destination.getId())

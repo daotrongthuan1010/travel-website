@@ -21,20 +21,22 @@ public class UserSecurityDetails implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    final Optional<User> user = userRepository.findByUsername(username);
 
-    if (user.get() == null) {
+
+    Optional<User> user = userRepository.findByUsername(username);
+
+    if (!user.isPresent()) {
       throw new UsernameNotFoundException("User '" + username + "' not found");
     }
 
-    return org.springframework.security.core.userdetails.User//
+    return org.springframework.security.core.userdetails.User
         .withUsername(username)
         .password(user.get().getPassword())
-        .authorities(user.get().getRoles())//
-        .accountExpired(false)//
-        .accountLocked(false)//
-        .credentialsExpired(false)//
-        .disabled(false)//
+        .authorities(user.get().getRoles())
+        .accountExpired(false)
+        .accountLocked(false)
+        .credentialsExpired(false)
+        .disabled(false)
         .build();
   }
 

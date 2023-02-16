@@ -1,7 +1,7 @@
 /**
  * @author ThuanDao
  */
-package daothuan.web.com.travelsocial.repositoryIpm;
+package daothuan.web.com.travelsocial.repository.repositoryIpm;
 
 import daothuan.web.com.travelsocial.domain.entity.User;
 import daothuan.web.com.travelsocial.repository.UserRepository;
