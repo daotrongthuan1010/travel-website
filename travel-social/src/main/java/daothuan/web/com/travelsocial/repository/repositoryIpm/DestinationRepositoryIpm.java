@@ -54,7 +54,7 @@ public class DestinationRepositoryIpm {
           .id(destination.getId())
           .name(destination.getName())
           .description(destination.getDescription())
-          .location(destination.getLocation())
+          .locationId(destination.getLocationId())
           .build();
       entityManager.merge(existingDestination);
     } else {

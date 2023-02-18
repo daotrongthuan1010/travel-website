@@ -29,6 +29,9 @@ public class Destination extends AuditLog  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "code_tour")
+    private String codeTour;
+
     @Column(name = "name")
     private String name;
 

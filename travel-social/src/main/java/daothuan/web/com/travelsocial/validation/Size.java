@@ -6,7 +6,7 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import daothuan.web.com.travelsocial.validation.Email.List;
+import daothuan.web.com.travelsocial.validation.Size.List;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
@@ -24,19 +24,27 @@ import java.lang.annotation.Target;
 @Target({ METHOD, FIELD, CONSTRUCTOR, PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Repeatable(List.class)
-@Constraint(validatedBy = EmailValidator.class)
-public @interface Email {
+@Constraint(validatedBy = SizeValidator.class)
+public @interface Size {
 
-  String message() default "";
+    @jakarta.validation.constraints.Size
+    String message() default "";
 
-  Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-  Class<? extends Payload>[]  payload() default {};
+    Class<? extends Payload>[] payloads() default {};
 
-  @Target({ METHOD, FIELD, CONSTRUCTOR, PARAMETER})
-  @Retention(RUNTIME)
-  @Documented
-  @interface List {
-    Email[] value();
-  }
+    int min() default Integer.MIN_VALUE;
+
+    int max() default Integer.MAX_VALUE;
+
+
+    @Target({ METHOD, FIELD, CONSTRUCTOR, PARAMETER})
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+
+       Size[] value();
+    }
+
 }
