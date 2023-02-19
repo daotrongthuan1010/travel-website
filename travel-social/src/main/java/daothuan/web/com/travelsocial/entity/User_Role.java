@@ -1,35 +1,42 @@
-package daothuan.web.com.travelsocial.domain.entity;
+package daothuan.web.com.travelsocial.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * User class to for .
+ * Customer class marks a user as a guest
  *
- * @author ThuanDao1010
+ * @author thuandao
  * @version 1.0
  */
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Tag extends AuditLog {
+@Data
+public class User_Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
 
-    @Column(name ="description")
-    private String description;
+
+
+
+
+
+
+
+
 
 
 }

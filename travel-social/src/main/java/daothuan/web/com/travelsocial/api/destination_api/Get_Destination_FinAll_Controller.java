@@ -3,9 +3,9 @@
  */
 package daothuan.web.com.travelsocial.api.destination_api;
 
-import daothuan.web.com.travelsocial.api.destination_api.apirequest.Get_Destination_FindAll_ApiRequest;
-import daothuan.web.com.travelsocial.api.destination_api.apiresponse.Get_Destination_FindAll_ApiResponse;
+import daothuan.web.com.travelsocial.api.destination_api.apiresponse.Get_List_Destination_By_Name_ApiResponse;
 import daothuan.web.com.travelsocial.api.destination_api.usecase.Get_Destination_FindAll_UseCase;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +17,10 @@ public class Get_Destination_FinAll_Controller {
 
 
   @GetMapping("/find-all")
-  public ResponseEntity<Get_Destination_FindAll_ApiResponse> findAllDestination(
-      Get_Destination_FindAll_ApiRequest apiRequest){
+  public ResponseEntity<Get_List_Destination_By_Name_ApiResponse> findAllDestination(
+      @Param("keyWord") String name){
 
-    Get_Destination_FindAll_UseCase.execute(apiRequest);
+    Get_Destination_FindAll_UseCase.execute(name);
 
     return ResponseEntity.ok().build();
 

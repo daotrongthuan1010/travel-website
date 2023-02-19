@@ -3,13 +3,13 @@
  */
 package daothuan.web.com.travelsocial.repository.repositoryIpm;
 
-import daothuan.web.com.travelsocial.domain.entity.Destination;
+import daothuan.web.com.travelsocial.dto.Get_List_Destination_By_Name_DTO;
+import daothuan.web.com.travelsocial.repository.DestinationRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -20,47 +20,34 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Transactional
-public class DestinationRepositoryIpm {
+public abstract class DestinationRepositoryIpm implements DestinationRepository {
 
 
   @PersistenceContext
   private EntityManager entityManager;
 
   /**
-   * Retrieves a list of destinations with the given name.
-   *
-   * @param nameDestination the name of the destination to search for
-   * @return a list of destinations with the given name
-   * @author thuandao
+
+   Finds a list of destinations by name, with pagination support.
+   @param nameDestination the name of the destination to search for
+   @param offset the index of the first result to retrieve
+   @param limit the maximum number of results to retrieve
+   @return a list of Destination objects matching the specified name, limited by the given offset and limit
    */
 
-  public List<Destination> findListDestination(String nameDestination) {
-    TypedQuery<Destination> query = entityManager.createQuery("SELECT u FROM Destination u WHERE u.name = :nameDestination", Destination.class);
+  public List<Get_List_Destination_By_Name_DTO> findListDestination(String nameDestination, int offset, int limit) {
+
+    String jpql = "SELECT NEW daothuan.web.com.travelsocial.api_response.destination_api_response.Get_List_Destination_By_Name_Api_Response()"
+        + " FROM Destination des JOIN Price price"
+        + " WHERE des.name = :nameDestination";
+    TypedQuery<Get_List_Destination_By_Name_DTO>
+        query = entityManager.createQuery(jpql, Get_List_Destination_By_Name_DTO.class);
     query.setParameter("nameDestination", nameDestination);
-    List<Destination> resultList = query.getResultList();
+    query.setFirstResult(offset);
+    query.setMaxResults(limit);
+    List<Get_List_Destination_By_Name_DTO> resultList = query.getResultList();
     entityManager.clear();
     return resultList;
-  }
-
-
-  @Transactional
-  public void saveOrUpdate(Destination destination) {
-    Optional<Destination> optional = Optional.ofNullable(destination.getId())
-        .flatMap(id -> Optional.ofNullable(entityManager.find(Destination.class, id)));
-
-    if (optional.isPresent()) {
-      Destination existingDestination = optional.get();
-      existingDestination = Destination.builder()
-          .id(destination.getId())
-          .name(destination.getName())
-          .description(destination.getDescription())
-          .locationId(destination.getLocationId())
-          .build();
-      entityManager.merge(existingDestination);
-    } else {
-      entityManager.persist(destination);
-    }
-    entityManager.flush();
   }
 
 

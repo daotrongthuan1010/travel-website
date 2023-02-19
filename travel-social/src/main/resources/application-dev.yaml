@@ -12,7 +12,8 @@ spring:
         hibernate:
           validator:
             apply_to_ddl: false
-          dialect: org.hibernate.dialect.MySQL5Dialect
+          dialect: org.hibernate.dialect.PostgreSQL81Dialect
+          format_sql: true
 server:
   port: 8080
 

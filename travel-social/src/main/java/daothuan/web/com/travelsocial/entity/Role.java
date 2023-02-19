@@ -1,4 +1,4 @@
-package daothuan.web.com.travelsocial.domain.entity;
+package daothuan.web.com.travelsocial.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 

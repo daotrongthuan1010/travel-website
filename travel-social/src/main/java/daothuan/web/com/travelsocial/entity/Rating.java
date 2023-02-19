@@ -1,6 +1,7 @@
-package daothuan.web.com.travelsocial.domain.entity;
+package daothuan.web.com.travelsocial.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,27 +12,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * Category class categorizes/classifies
+ * Customer class marks a user as a guest
  *
- * @author ThuanDao1010
+ * @author thuandao
  * @version 1.0
  */
+@Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Category extends AuditLog  {
-
+public class Rating extends AuditLog  {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_post")
-    private String categoryPost;
+    @Column(name="POINT_RATE")
+    private Double pointRate;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "content")
+    private String content;
 
     @Column(name = "description")
     private String description;

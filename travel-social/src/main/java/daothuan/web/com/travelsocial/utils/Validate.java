@@ -23,6 +23,16 @@ public class Validate {
     validator = new LocalValidatorFactoryBean();
   }
 
+  /**
+   * Validates the given object using the default validator and returns a map of validation errors
+   * grouped by error type.
+   *
+   * @param object the object to validate
+   * @param <T> the type of the object to validate
+   * @return a map of validation errors grouped by error type
+   * @throws jakarta.validation.ValidationException if an error occurs while validating the object
+   * @author daotrongthuan1010
+   */
   public static <T> Map<Class<?>, List<String>> validateAndGetErrorMessages(T object) {
     Set<ConstraintViolation<T>> violations = validator.validate(object);
     return violations.stream()

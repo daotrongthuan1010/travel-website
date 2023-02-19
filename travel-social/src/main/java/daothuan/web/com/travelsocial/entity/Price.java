@@ -1,42 +1,34 @@
-package daothuan.web.com.travelsocial.domain.entity;
+package daothuan.web.com.travelsocial.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import java.time.LocalDateTime;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * Customer class marks a user as a guest
+ * Price class marks price change
  *
  * @author thuandao
  * @version 1.0
  */
 @Entity
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
-public class User_Role {
+@Getter
+public class Price  extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "price")
+    private Double price;
 
-
-
-
-
-
-
-
-
+    @Column(name = "updateAt")
+    private LocalDateTime updatedAt;
 
 
 }

@@ -3,7 +3,7 @@
  */
 package daothuan.web.com.travelsocial.repository;
 
-import daothuan.web.com.travelsocial.domain.entity.User;
+import daothuan.web.com.travelsocial.entity.User;
 import java.util.Optional;
 
 public interface UserRepository {
