@@ -33,7 +33,10 @@ public class Comment extends AuditLog {
     private String description;
 
     @Column(name = "date_post")
-    private LocalDateTime datePost;
+    private LocalDateTime dateComment;
+
+    @Column(name = "post_id")
+    private Long idPost;
 
 
 

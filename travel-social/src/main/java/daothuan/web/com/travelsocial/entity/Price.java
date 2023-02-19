@@ -6,8 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Price class marks price change
@@ -17,8 +20,11 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Getter
-public class Price  extends AuditLog{
+@Setter
+public class Price extends AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +33,11 @@ public class Price  extends AuditLog{
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "updateAt")
+    @Column(name = "update_at")
     private LocalDateTime updatedAt;
+
+    @Column(name = "destination_id")
+    private Long idDestination;
 
 
 }

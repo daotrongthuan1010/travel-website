@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/destination/")
+@RequestMapping("/api/destination")
 public class Get_Destination_FinAll_Controller {
 
 
-  @GetMapping("/find-all")
-  public ResponseEntity<Get_List_Destination_By_Name_ApiResponse> findAllDestination(
-      @Param("keyWord") String name){
-
-    Get_Destination_FindAll_UseCase.execute(name);
-
-    return ResponseEntity.ok().build();
-
-  }
+//  @GetMapping("/find-all")
+//  public ResponseEntity<Get_List_Destination_By_Name_ApiResponse> findAllDestination(
+//      @Param("nameDestination") String name){
+//
+//    Get_Destination_FindAll_UseCase.execute(name);
+//
+//    return ResponseEntity.ok().build();
+//
+//  }
 
 }

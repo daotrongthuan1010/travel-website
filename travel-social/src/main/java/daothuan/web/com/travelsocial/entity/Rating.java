@@ -28,7 +28,7 @@ public class Rating extends AuditLog  {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="POINT_RATE")
+    @Column(name="point_rate")
     private Double pointRate;
 
     @Column(name = "content")
@@ -36,6 +36,9 @@ public class Rating extends AuditLog  {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "post_id")
+    private Long idPost;
 
 
 

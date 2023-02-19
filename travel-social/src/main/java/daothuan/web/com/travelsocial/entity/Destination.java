@@ -38,20 +38,13 @@ public class Destination extends AuditLog  {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "price_id")
-    private Long priceId;
-
-    @Column(name ="location_id")
-    private Long locationId;
-
     @Column(name = "url_img")
     private String urlImg;
 
     @Column(name = "category_id")
     private Long categoryId;
 
-    @Column(name = "post_id")
-    private Long postId;
+
 
 
 

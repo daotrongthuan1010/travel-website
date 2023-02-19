@@ -1,9 +1,6 @@
 package daothuan.web.com.travelsocial.api.destination_api.usecase;
 
-import daothuan.web.com.travelsocial.api.destination_api.apirequest.Get_Destination_FindAll_ApiRequest;
-import daothuan.web.com.travelsocial.entity.Destination;
 import daothuan.web.com.travelsocial.repository.repositoryIpm.DestinationRepositoryIpm;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +17,11 @@ public class Get_Destination_FindAll_UseCase {
 
 
 
-  public List<Destination> execute(String name){
-    int i = 10;
-    destinationRepositoryIpm.findListDestination(name, i, i+10);
-
-
-  }
+//  public List<Destination> execute(String name){
+//    int i = 10;
+//    destinationRepositoryIpm.findListDestination(name, i, i+10);
+//
+//
+//  }
 
 }

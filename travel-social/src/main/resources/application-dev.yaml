@@ -4,17 +4,17 @@ spring:
     username: root
     password: mk123654
   jpa:
-      open-in-view: false
-      show-sql: true
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
       hibernate:
-        ddl-auto: update
-      properties:
-        hibernate:
-          validator:
-            apply_to_ddl: false
-          dialect: org.hibernate.dialect.PostgreSQL81Dialect
-          format_sql: true
+        validator:
+          apply_to_ddl: false
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
 server:
-  port: 8080
+  port: 8082
 
 

@@ -38,4 +38,12 @@ public class Post extends AuditLog {
     @Column(name = "post_time")
     private String timePost;
 
+    @Column(name = "category_post_id")
+    private Long categoryPostId;
+
+    @Column(name = "post_id")
+    private Long postId;
+
+
+
 }

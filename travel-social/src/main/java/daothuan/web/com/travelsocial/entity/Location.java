@@ -39,4 +39,6 @@ public class Location extends AuditLog  {
     private Long address_id;
 
 
+
+
 }
