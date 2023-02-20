@@ -1,6 +1,7 @@
 package daothuan.web.com.travelsocial.service;
 
 import daothuan.web.com.travelsocial.dto.Get_List_Destination_By_Name_DTO;
+import daothuan.web.com.travelsocial.validation.ServiceException;
 import java.util.List;
 
 /**
@@ -10,5 +11,6 @@ import java.util.List;
  */
 public interface DestinationService {
 
-    List<Get_List_Destination_By_Name_DTO> findListDestinationByName(String name);
+    List<Get_List_Destination_By_Name_DTO> findListDestinationByName(String nameDestination, int offset, int limit) throws
+        ServiceException;
 }

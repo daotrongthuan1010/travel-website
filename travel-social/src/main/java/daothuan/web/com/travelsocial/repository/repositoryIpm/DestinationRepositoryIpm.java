@@ -1,6 +1,7 @@
 package daothuan.web.com.travelsocial.repository.repositoryIpm;
 
 import daothuan.web.com.travelsocial.dto.Get_List_Destination_By_Name_DTO;
+import daothuan.web.com.travelsocial.repository.DestinationCustomRepository;
 import daothuan.web.com.travelsocial.repository.DestinationRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Transactional
-public abstract class DestinationRepositoryIpm implements DestinationRepository {
+public class DestinationRepositoryIpm implements DestinationCustomRepository {
 
 
   @PersistenceContext
@@ -33,6 +34,8 @@ public abstract class DestinationRepositoryIpm implements DestinationRepository 
    */
 
   public List<Get_List_Destination_By_Name_DTO> findListDestination(String nameDestination, int offset, int limit) {
+
+    int startPosition = offset * limit;
 
     String jpql = "SELECT NEW daothuan.web.com.travelsocial.dto.Get_List_Destination_By_Name_DTO(d.codeTour, d.name, d.description, p.price)"
         + " FROM Destination d "
