@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,12 +20,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class DestinationServiceIpm implements DestinationService {
 
-
+  @Autowired
   private DestinationRepository destinationRepository;
 
+  @Autowired
   private DestinationCustomRepository destinationCustomRepository;
 
 

@@ -42,7 +42,7 @@ public class DestinationRepositoryIpm implements DestinationCustomRepository {
         + "left  join Price p "
         + "on d.id   = p.idDestination "
         + "left join  Post  p2 "
-        + "on p2.postId  = d.id";
+        + "on p2.postId  = d.id where d.name =:nameDestination";
 
     TypedQuery<Get_List_Destination_By_Name_DTO>
         query = entityManager.createQuery(jpql, Get_List_Destination_By_Name_DTO.class);

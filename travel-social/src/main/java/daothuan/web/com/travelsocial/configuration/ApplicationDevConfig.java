@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @Profile("dev")
-@PropertySource("classpath:application-dev.yaml")
+@PropertySource("classpath:application.yml")
 public class ApplicationDevConfig {
 
 }

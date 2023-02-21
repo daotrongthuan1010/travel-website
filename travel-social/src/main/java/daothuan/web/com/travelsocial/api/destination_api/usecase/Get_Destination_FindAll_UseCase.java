@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -19,21 +20,20 @@ import org.springframework.stereotype.Service;
  * @since 2023-02-11
  */
 @Service
-@RequiredArgsConstructor
 public class Get_Destination_FindAll_UseCase {
-
+  @Autowired
   private DestinationService destinationService;
 
+  @Autowired
   private Validator validator;
 
 
   public ResponseEntity<List<Get_List_Destination_By_Name_ApiResponse>> execute(String name, int page) {
 
-    int pageSize = 10; // number of items per page
+    int pageSize = 1; // number of items per page
     int offset = page * pageSize; // calculate the offset based on the current page number
 
-    List<Get_List_Destination_By_Name_DTO> destinations = destinationService.findListDestinationByName(name, offset, pageSize);
-    List<Get_List_Destination_By_Name_ApiResponse> response = destinations.stream()
+    List<Get_List_Destination_By_Name_ApiResponse> response = destinationService.findListDestinationByName(name, offset, pageSize).stream()
         .map(destination -> Get_List_Destination_By_Name_ApiResponse.builder()
             .codeTour(destination.getCodeTour())
             .name(destination.getName())
