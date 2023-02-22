@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = SizeValidator.class)
 public @interface Size {
 
-    @jakarta.validation.constraints.Size
+
     String message() default "";
 
     Class<?>[] groups() default {};

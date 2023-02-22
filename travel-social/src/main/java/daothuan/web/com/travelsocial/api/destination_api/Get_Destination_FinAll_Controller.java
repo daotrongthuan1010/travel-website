@@ -20,24 +20,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/destination")
 public class Get_Destination_FinAll_Controller {
 
-  @Autowired
-  private Get_Destination_FindAll_UseCase destination_findAll_useCase;
 
-  @Autowired
-  private DestinationRepository destinationRepository;
+  private final Get_Destination_FindAll_UseCase destination_findAll_useCase;
+
+
+  private final DestinationRepository destinationRepository;
 
 
 
   @GetMapping("/find-all")
   public ResponseEntity<List<Get_List_Destination_By_Name_ApiResponse>> findAllDestination(
-      @Param("name") String name, @Param("page") int page){
-
-  System.out.println(name + page);
-
-    return destination_findAll_useCase.execute(name,page);
+      @Param("name") Optional<String> name, @Param("page") Optional<Integer> page){
+    return destination_findAll_useCase.execute(name , page);
 
   }
 

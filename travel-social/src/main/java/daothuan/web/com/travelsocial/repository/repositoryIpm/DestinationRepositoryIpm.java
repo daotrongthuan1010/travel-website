@@ -8,6 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -42,7 +43,7 @@ public class DestinationRepositoryIpm implements DestinationCustomRepository {
         + "left  join Price p "
         + "on d.id   = p.idDestination "
         + "left join  Post  p2 "
-        + "on p2.postId  = d.id where d.name =:nameDestination";
+        + "on p2.postId  = d.id where d.name like :nameDestination";
 
     TypedQuery<Get_List_Destination_By_Name_DTO>
         query = entityManager.createQuery(jpql, Get_List_Destination_By_Name_DTO.class);
@@ -50,6 +51,7 @@ public class DestinationRepositoryIpm implements DestinationCustomRepository {
     query.setFirstResult(offset);
     query.setMaxResults(limit);
     List<Get_List_Destination_By_Name_DTO> resultList = query.getResultList();
+
     entityManager.clear();
     return resultList;
   }
